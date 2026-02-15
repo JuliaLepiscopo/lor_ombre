@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 showStep('step-entrega');
                 if (timerInterval) clearInterval(timerInterval);
             } else {
-                alert("Código inválido. Tente 0000.");
+                alert("Código inválido. Tente novamente.");
             }
         });
     }

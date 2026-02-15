@@ -25,8 +25,7 @@ function initGoogle() {
         console.warn('Origens permitidas (config em arquivo):', ALLOWED_ORIGINS);
     }
 
-    // Cria badge de status para debugging visual
-    createGoogleStatusBadge();
+    // debug badge removed
 
     if (window.google) {
         try {
@@ -46,56 +45,13 @@ function initGoogle() {
             window.tokenClient = tokenClient;
             window.initGoogle = initGoogle;
             console.log('Google Login inicializado! tokenClient exposto em window.tokenClient');
-            updateGoogleStatus('ready');
         } catch (err) {
             console.error('Erro ao inicializar google.accounts.oauth2.initTokenClient:', err);
-            updateGoogleStatus('error');
+            // debug removed
         }
     } else {
         console.warn('window.google não está disponível ainda. O script do Google pode não ter carregado.');
-        updateGoogleStatus('no-google-script');
-    }
-}
-
-// Cria um badge simples no canto superior direito para indicar status do Google Login
-function createGoogleStatusBadge() {
-    if (document.getElementById('google-status-badge')) return;
-    const badge = document.createElement('div');
-    badge.id = 'google-status-badge';
-    badge.style.position = 'fixed';
-    badge.style.right = '12px';
-    badge.style.top = '12px';
-    badge.style.padding = '8px 10px';
-    badge.style.background = 'rgba(0,0,0,0.6)';
-    badge.style.color = '#F5E3B3';
-    badge.style.border = '1px solid rgba(212,175,55,0.15)';
-    badge.style.borderRadius = '6px';
-    badge.style.fontSize = '12px';
-    badge.style.zIndex = 9999;
-    badge.style.fontFamily = 'sans-serif';
-    badge.textContent = 'GoogleLogin: inic.';
-    document.body.appendChild(badge);
-}
-
-function updateGoogleStatus(state) {
-    const badge = document.getElementById('google-status-badge');
-    if (!badge) return;
-    if (state === 'ready') {
-        badge.textContent = 'GoogleLogin: pronto';
-        badge.style.background = 'rgba(29, 29, 29, 0.8)';
-        badge.style.color = '#D4AF37';
-    } else if (state === 'no-google-script') {
-        badge.textContent = 'GoogleLogin: script ausente';
-        badge.style.background = 'rgba(80,0,0,0.8)';
-        badge.style.color = '#ffb4b4';
-    } else if (state === 'error') {
-        badge.textContent = 'GoogleLogin: erro';
-        badge.style.background = 'rgba(80,0,0,0.8)';
-        badge.style.color = '#ffb4b4';
-    } else if (state === 'attempt') {
-        badge.textContent = 'GoogleLogin: tentativa';
-        badge.style.background = 'rgba(0,0,0,0.7)';
-        badge.style.color = '#fff';
+        // debug removed
     }
 }
 
@@ -126,6 +82,10 @@ function fetchUserData(accessToken) {
             // Se a função showStep existir (estiver no mesmo contexto), avança.
             if (typeof showStep === 'function') {
                 showStep('step-codigo'); // Pula o login e vai para a próxima etapa
+                // Inicia o timer de verificação se disponível
+                if (typeof window.startTimer === 'function') {
+                    try { window.startTimer(); } catch (e) { console.error('Erro ao iniciar timer via window.startTimer:', e); }
+                }
             } else {
                 // Se não, recarrega a página para atualizar o estado
                 window.location.reload();

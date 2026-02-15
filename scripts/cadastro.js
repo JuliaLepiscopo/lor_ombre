@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 localStorage.setItem('user_registered', 'true');
                 showStep('cadastro-success');
             } else {
-                alert("Código inválido. Tente 0000.");
+                alert("Código inválido. Tente novamente.");
                 codigoInputs.forEach(i => i.value = '');
                 codigoInputs[0].focus();
             }
