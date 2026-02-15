@@ -1,139 +1,150 @@
-// --- Função showStep global para navegação entre etapas ---
-let showStepGlobal; // Variável para guardar a referência
+// scripts/buy.js
 
 document.addEventListener('DOMContentLoaded', function () {
-    const steps = ['step-login', 'step-codigo', 'step-entrega', 'step-endereco', 'step-lojas', 'step-confirmacao'];
-    // Definição da função showStep
-    function showStep(stepId) {
-        steps.forEach(id => {
-            const el = document.getElementById(id);
-            if (el) el.classList.add('hidden');
-        });
-        const target = document.getElementById(stepId);
-        if (target) {
-            target.classList.remove('hidden');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    }
-    // Exporta a função para uso global
-    window.showStep = showStep;
-    // ... resto do seu código ...
-});
-document.addEventListener('DOMContentLoaded', function () {
-    console.log("Script de compra carregado!"); // Para confirmar que o JS rodou
+    console.log("Script de compra carregado!");
 
-    // 1. Definição das Telas
+    // 1. Definição das Telas e Variáveis Globais
     const steps = ['step-login', 'step-codigo', 'step-entrega', 'step-endereco', 'step-lojas', 'step-confirmacao'];
     let timerInterval;
-
-    // Elementos Globais
     const codigoInputs = document.querySelectorAll('.codigo-input');
     const timerSpan = document.getElementById('codigo-timer');
 
-    // --- FUNÇÃO DE NAVEGAÇÃO SIMPLES (SEM MEMÓRIA) ---
+    // --- FUNÇÃO DE NAVEGAÇÃO ---
     function showStep(stepId) {
-        // Esconde todas as telas
         steps.forEach(id => {
             const el = document.getElementById(id);
             if (el) el.classList.add('hidden');
         });
 
-        // Mostra apenas a tela pedida
         const target = document.getElementById(stepId);
         if (target) {
             target.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // REMOVIDO: localStorage.setItem('checkout_step'...) 
-        // Não salvamos mais o passo para não travar no F5.
     }
 
-    // --- TIMER ---
+    // Exporta para uso global (necessário para o Google Login)
+    window.showStep = showStep;
+
+    // --- TIMER E REENVIO ---
     function startTimer() {
         let timer = 30;
         if (timerInterval) clearInterval(timerInterval);
         if (timerSpan) timerSpan.textContent = '00:30';
+        removeResendButton();
 
         timerInterval = setInterval(() => {
             timer--;
             if (timerSpan) timerSpan.textContent = `00:${timer.toString().padStart(2, '0')}`;
-            if (timer <= 0) clearInterval(timerInterval);
+            if (timer <= 0) {
+                clearInterval(timerInterval);
+                onTimerEnd();
+            }
         }, 1000);
     }
+    window.startTimer = startTimer;
 
-    // --- AUTO-AVANÇAR NOS INPUTS DO CÓDIGO ---
+    function onTimerEnd() {
+        if (timerSpan) {
+            timerSpan.textContent = '';
+            const btn = document.createElement('button');
+            btn.id = 'btn-reenviar-codigo';
+            btn.className = 'text-[#D4AF37] underline text-sm';
+            btn.textContent = 'Reenviar código';
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                codigoInputs.forEach(i => i.value = '');
+                if (codigoInputs.length) codigoInputs[0].focus();
+                alert('Código reenviado.');
+                startTimer();
+            });
+            timerSpan.appendChild(btn);
+        }
+    }
+
+    function removeResendButton() {
+        const btn = document.getElementById('btn-reenviar-codigo');
+        if (btn) btn.remove();
+    }
+
+    // --- LÓGICA DO PASSO: CÓDIGO (Enter habilitado) ---
     codigoInputs.forEach((input, idx) => {
         input.addEventListener('input', () => {
             if (input.value.length === 1 && idx < codigoInputs.length - 1) codigoInputs[idx + 1].focus();
         });
         input.addEventListener('keydown', (e) => {
             if (e.key === 'Backspace' && input.value === '' && idx > 0) codigoInputs[idx - 1].focus();
+            
+            // Atalho Enter para validar código
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('btn-confirmar-codigo')?.click();
+            }
         });
     });
 
-    // ============================================================
-    //  A LÓGICA DO BOTÃO ENTRAR (SIMPLES E DIRETA)
-    // ============================================================
-
-    const btnEntrar = document.getElementById('btn-entrar-login');
-    console.log(btnEntrar)
-
-    if (btnEntrar) {
-        btnEntrar.addEventListener('click', function (e) {
-            e.preventDefault();
-            console.log("Botão Entrar clicado!");
-
-            // 1. Pega os campos
-            const emailField = document.getElementById('login-email');
-            const passField = document.getElementById('login-password');
-
-            // 2. Validação: Campos estão vazios?
-            if (!emailField.value.trim() || !passField.value.trim()) {
-                alert("Por favor, preencha E-mail e Senha.");
-                return; // Para tudo aqui se estiver vazio
-            }
-
-            // 3. Verifica se é cadastrado
-            const isRegistered = localStorage.getItem('user_registered');
-            console.log("Usuário registrado?", isRegistered);
-
-            if (isRegistered === 'true') {
-                // SUCESSO: Vai para a tela de Código
-                console.log("Indo para validação...");
-                showStep('step-codigo');
-                startTimer();
-            } else {
-                // FALHA: Manda para o cadastro
-                alert("Cadastro não encontrado. Redirecionando...");
-                window.location.href = "register.html";
-            }
-        });
-    } else {
-        console.error("ERRO: Botão 'btn-entrar-login' não foi encontrado no HTML.");
-    }
-
-    // --- OUTROS BOTÕES (CÓDIGO, ENDEREÇO, ETC) ---
-
-    // Botão Validar Código (0000)
     const btnConfirmarCode = document.getElementById('btn-confirmar-codigo');
     if (btnConfirmarCode) {
-        btnConfirmarCode.addEventListener('click', function (e) {
+        btnConfirmarCode.addEventListener('click', (e) => {
             e.preventDefault();
             const code = Array.from(codigoInputs).map(i => i.value).join('');
-
             if (code === '0000') {
-                showStep('step-entrega'); // Vai para a entrega
+                showStep('step-entrega');
                 if (timerInterval) clearInterval(timerInterval);
             } else {
-                alert("Código inválido. Tente 0000.");
+                alert("Código inválido. Tente novamente.");
                 codigoInputs.forEach(i => i.value = '');
                 codigoInputs[0].focus();
             }
         });
     }
 
-    // Busca de CEP
+    // --- LÓGICA DO PASSO: LOGIN ---
+    const btnEntrar = document.getElementById('btn-entrar-login');
+    const loginInputs = [document.getElementById('login-email'), document.getElementById('login-password')];
+    
+    loginInputs.forEach(input => {
+        input?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                btnEntrar?.click();
+            }
+        });
+    });
+
+    if (btnEntrar) {
+        btnEntrar.addEventListener('click', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value.trim();
+            const pass = document.getElementById('login-password').value.trim();
+
+            if (!email || !pass) {
+                alert("Por favor, preencha todos os campos obrigatórios.");
+                return;
+            }
+
+            if (localStorage.getItem('user_registered') === 'true') {
+                showStep('step-codigo');
+                startTimer();
+            } else {
+                alert("Cadastro não encontrado.");
+                window.location.href = "register.html";
+            }
+        });
+    }
+
+    // --- LÓGICA DO PASSO: ENDEREÇO (CEP e Enter habilitado) ---
+    const addressFields = ['cep-input', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'estado'];
+    addressFields.forEach(id => {
+        const field = document.getElementById(id);
+        field?.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                document.getElementById('btn-salvar-entrega')?.click();
+            }
+        });
+    });
+
     const cepInput = document.getElementById('cep-input');
     if (cepInput) {
         cepInput.addEventListener('input', function () {
@@ -147,50 +158,53 @@ document.addEventListener('DOMContentLoaded', function () {
                             document.getElementById('bairro').value = data.bairro || '';
                             document.getElementById('cidade').value = data.localidade || '';
                             document.getElementById('estado').value = data.uf || '';
+                            document.getElementById('numero').focus();
                         }
                     });
             }
         });
     }
 
-    // Botão Salvar Endereço
     const btnSalvarEntrega = document.getElementById('btn-salvar-entrega');
     if (btnSalvarEntrega) {
-        btnSalvarEntrega.addEventListener('click', function (e) {
+        btnSalvarEntrega.addEventListener('click', (e) => {
             e.preventDefault();
-            showStep('step-endereco');
+            const requiredIds = ['cep-input', 'logradouro', 'numero', 'bairro', 'cidade', 'estado'];
+            let allFilled = true;
+
+            requiredIds.forEach(id => {
+                const field = document.getElementById(id);
+                if (!field?.value.trim()) {
+                    allFilled = false;
+                    field.style.borderBottomColor = '#ef4444';
+                } else {
+                    field.style.borderBottomColor = '';
+                }
+            });
+
+            if (allFilled) showStep('step-endereco');
+            else alert('Preencha os campos obrigatórios.');
         });
     }
 
-    // Botão Alterar Endereço
-    const btnAlterarEndereco = document.getElementById('btn-alterar-endereco');
-    if (btnAlterarEndereco) {
-        btnAlterarEndereco.addEventListener('click', function (e) {
-            e.preventDefault();
-            showStep('step-entrega');
-        });
-    }
+    // --- NAVEGAÇÃO FINAL ---
+    document.getElementById('btn-alterar-endereco')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        showStep('step-entrega');
+    });
 
-    // Navegação Final
-    const btnIrLojas = document.getElementById('btn-ir-lojas');
-    if (btnIrLojas) {
-        btnIrLojas.addEventListener('click', function (e) {
-            e.preventDefault();
-            showStep('step-lojas');
-        });
-    }
+    document.getElementById('btn-ir-lojas')?.addEventListener('click', (e) => {
+        e.preventDefault();
+        showStep('step-lojas');
+    });
 
     document.querySelectorAll('.btn-selecionar-loja').forEach(btn => {
-        btn.addEventListener('click', function (e) {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
             showStep('step-confirmacao');
         });
     });
 
-    // ============================================================
-    //  INICIALIZAÇÃO PADRÃO (SEM RESTAURAÇÃO DE PASSO)
-    // ============================================================
-    // Sempre começa no login ao dar F5 ou abrir a página
+    // Início padrão
     showStep('step-login');
 });
-

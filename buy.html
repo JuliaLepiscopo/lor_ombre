@@ -51,13 +51,13 @@
                 <form id="login-form-submit" class="space-y-6">
                     <div>
                         <label class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">E-mail
-                            ou CPF</label>
+                            ou CPF <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
                         <input type="text" id="login-email" required
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all font-cormorant text-lg italic" />
                     </div>
                     <div>
                         <label
-                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Senha</label>
+                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Senha <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
                         <input type="password" id="login-password" required
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all" />
                         <a href="#" class="text-xs text-[#D4AF37]/60 mt-4 block italic font-cormorant">Esqueci minha
@@ -116,44 +116,46 @@
                     Entrega</h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="md:col-span-2">
-                        <label
-                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">CEP</label>
+                        <label class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">CEP
+                            <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
                         <input type="text" id="cep-input" placeholder="00000-000"
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all font-cormorant text-lg" />
                     </div>
                     <div class="md:col-span-2">
                         <label
-                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Logradouro</label>
+                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Logradouro
+                            <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
                         <input type="text" id="logradouro"
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all font-cormorant text-lg italic" />
                     </div>
                     <div>
-                        <label
-                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Número</label>
+                        <label class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Número
+                            <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
                         <input type="text" id="numero"
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all font-cormorant text-lg" />
                     </div>
                     <div>
                         <label
-                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Complemento</label>
-                        <input type="text"
+                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Complemento
+                            <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
+                        <input id="complemento" type="text"
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all font-cormorant text-lg italic" />
                     </div>
                     <div class="md:col-span-2">
-                        <label
-                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Bairro</label>
+                        <label class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Bairro
+                            <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
                         <input type="text" id="bairro"
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all font-cormorant text-lg italic" />
                     </div>
                     <div>
-                        <label
-                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Cidade</label>
+                        <label class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Cidade
+                            <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
                         <input type="text" id="cidade"
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all font-cormorant text-lg italic" />
                     </div>
                     <div>
-                        <label
-                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Estado</label>
+                        <label class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Estado
+                            <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
                         <input type="text" id="estado"
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all font-cormorant text-lg uppercase" />
                     </div>
@@ -211,7 +213,7 @@
         <p class="text-gray-600 text-xs tracking-wider uppercase font-cinzel">© 2026 L'Or & Ombre. L'OR & OMBRE de Haute
             Parfumerie.</p>
     </footer>
-    
+
     <script src="./scripts/google-login.js"></script>
     <script src="./scripts/index.js"></script>
     <script src="./scripts/buy.js"></script>
