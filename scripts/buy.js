@@ -1,3 +1,24 @@
+// --- Função showStep global para navegação entre etapas ---
+let showStepGlobal; // Variável para guardar a referência
+
+document.addEventListener('DOMContentLoaded', function () {
+    const steps = ['step-login', 'step-codigo', 'step-entrega', 'step-endereco', 'step-lojas', 'step-confirmacao'];
+    // Definição da função showStep
+    function showStep(stepId) {
+        steps.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('hidden');
+        });
+        const target = document.getElementById(stepId);
+        if (target) {
+            target.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+    // Exporta a função para uso global
+    window.showStep = showStep;
+    // ... resto do seu código ...
+});
 document.addEventListener('DOMContentLoaded', function () {
     console.log("Script de compra carregado!"); // Para confirmar que o JS rodou
 
@@ -172,3 +193,4 @@ document.addEventListener('DOMContentLoaded', function () {
     // Sempre começa no login ao dar F5 ou abrir a página
     showStep('step-login');
 });
+
