@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./IMG/favicon.svg">
+    <title>Reservar - L'Or & Ombre</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/styles.css" />
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+</head>
+
+<body class="h-full luxury-bg text-white font-cormorant overflow-auto">
+    <nav class="sticky top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#D4AF37]/20">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-10 relative">
+            <div class="flex items-center gap-3">
+                <svg class="w-10 h-10 text-[#D4AF37]" viewBox="0 0 50 50" fill="none">
+                    <path d="M25 5L30 15H20L25 5Z" fill="currentColor" />
+                    <rect x="20" y="15" width="10" height="5" fill="currentColor" opacity="0.8" />
+                    <path d="M18 20C18 20 15 25 15 35C15 42 19 45 25 45C31 45 35 42 35 35C35 25 32 20 32 20H18Z"
+                        fill="currentColor" />
+                    <ellipse cx="25" cy="32" rx="6" ry="8" fill="#0D0D0D" opacity="0.3" />
+                </svg>
+                <span class="font-cinzel text-xl tracking-[0.3em] gold-text">L'Or & Ombre</span>
+            </div>
+            <div class="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 -md-36">
+                <a href="./index.html"
+                    class="nav-link text-[#D4AF37]/80 hover:text-[#D4AF37] tracking-widest text-sm transition-colors">COLEÇÃO</a>
+                <a href="./about.html"
+                    class="nav-link text-[#D4AF37]/80 hover:text-[#D4AF37] tracking-widest text-sm transition-colors">SOBRE</a>
+                <a href="./contact.html"
+                    class="nav-link text-[#D4AF37]/80 hover:text-[#D4AF37] tracking-widest text-sm transition-colors">CONTATO</a>
+            </div>
+
+        </div>
+    </nav>
+    <main class="py-24 px-6">
+        <div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-2">
+                <div class="card-luxury p-8 mb-8 relative min-h-[400px]">
+                    <h2 class="font-cinzel text-3xl gold-text mb-8">Seu Carrinho</h2>
+                    
+                    <div id="cart-container" class="overflow-x-auto transition-opacity duration-300">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="text-[#D4AF37]/60 text-xs font-cinzel uppercase">
+                                    <th class="py-2">Produto</th>
+                                    <th class="py-2">Características</th>
+                                    <th class="py-2">Quantidade</th>
+                                    <th class="py-2">Total</th>
+                                    <th class="py-2"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-body">
+                                <tr class="border-b border-[#D4AF37]/10">
+                                    <td class="py-4 flex items-center gap-4">
+                                        <img src="./IMG/img_perfume_1.png" alt="Perfume Lumière"
+                                            class="w-20 h-20 object-cover rounded" />
+                                        <div>
+                                            <span class="font-cinzel text-lg text-white">Perfume Lumière</span>
+                                            <p class="text-gray-500 text-xs">Tamanho: 50ml</p>
+                                        </div>
+                                    </td>
+                                    <td class="py-4">
+                                        <span class="text-gray-400 text-sm">Notas: Rosa damascena, sândalo, almíscar
+                                            branco.</span>
+                                    </td>
+                                    <td class="py-4">
+                                        <div class="flex items-center gap-2">
+                                            <button class="bg-[#D4AF37]/20 text-[#D4AF37] px-2 py-1 rounded btn-qty"
+                                                data-action="sub">-</button>
+                                            <span class="text-white item-qty">1</span>
+                                            <button class="bg-[#D4AF37]/20 text-[#D4AF37] px-2 py-1 rounded btn-qty"
+                                                data-action="add">+</button>
+                                        </div>
+                                    </td>
+                                    <td class="py-4">
+                                        <span class="font-cinzel text-[#D4AF37] text-lg item-total">R$ 5.790</span>
+                                        <span class="item-price hidden">5790</span>
+                                    </td>
+                                    <td class="py-4">
+                                        <button
+                                            class="text-[#D4AF37]/60 hover:text-[#D4AF37] text-xl btn-remove">×</button>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-[#D4AF37]/10">
+                                    <td class="py-4 flex items-center gap-4">
+                                        <img src="./IMG/img_perfume_3.png" alt="Perfume Lumière Intense"
+                                            class="w-20 h-20 object-cover rounded" />
+                                        <div>
+                                            <span class="font-cinzel text-lg text-white">Perfume Lumière Intense</span>
+                                            <p class="text-gray-500 text-xs">Tamanho: 50ml</p>
+                                        </div>
+                                    </td>
+                                    <td class="py-4">
+                                        <span class="text-gray-400 text-sm">Notas: Açafrão (Ouro Vermelho), Rosa
+                                            Absoluta, Âmbar Dourado.</span>
+                                    </td>
+                                    <td class="py-4">
+                                        <div class="flex items-center gap-2">
+                                            <button class="bg-[#D4AF37]/20 text-[#D4AF37] px-2 py-1 rounded btn-qty"
+                                                data-action="sub">-</button>
+                                            <span class="text-white item-qty">1</span>
+                                            <button class="bg-[#D4AF37]/20 text-[#D4AF37] px-2 py-1 rounded btn-qty"
+                                                data-action="add">+</button>
+                                        </div>
+                                    </td>
+                                    <td class="py-4">
+                                        <span class="font-cinzel text-[#D4AF37] text-lg item-total">R$ 7.890</span>
+                                        <span class="item-price hidden">7890</span>
+                                    </td>
+                                    <td class="py-4">
+                                        <button
+                                            class="text-[#D4AF37]/60 hover:text-[#D4AF37] text-xl btn-remove">×</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 flex items-center gap-4">
+                                        <img src="./IMG/img_perfume_2.png" alt="Perfume Noir"
+                                            class="w-20 h-20 object-cover rounded" />
+                                        <div>
+                                            <span class="font-cinzel text-lg text-white">Perfume Noir</span>
+                                            <p class="text-gray-500 text-xs">Tamanho: 50ml</p>
+                                        </div>
+                                    </td>
+                                    <td class="py-4">
+                                        <span class="text-gray-400 text-sm">Notas: Oud, âmbar negro, baunilha de
+                                            Madagascar.</span>
+                                    </td>
+                                    <td class="py-4">
+                                        <div class="flex items-center gap-2">
+                                            <button class="bg-[#D4AF37]/20 text-[#D4AF37] px-2 py-1 rounded btn-qty"
+                                                data-action="sub">-</button>
+                                            <span class="text-white item-qty">1</span>
+                                            <button class="bg-[#D4AF37]/20 text-[#D4AF37] px-2 py-1 rounded btn-qty"
+                                                data-action="add">+</button>
+                                        </div>
+                                    </td>
+                                    <td class="py-4">
+                                        <span class="font-cinzel text-[#D4AF37] text-lg item-total">R$ 9.990</span>
+                                        <span class="item-price hidden">9990</span>
+                                    </td>
+                                    <td class="py-4">
+                                        <button
+                                            class="text-[#D4AF37]/60 hover:text-[#D4AF37] text-xl btn-remove">×</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="empty-cart" class="hidden absolute inset-0 flex-col items-center justify-center bg-black/50 backdrop-blur-sm z-10 rounded-lg">
+                        <button id="add-product-btn"
+                            class="group flex items-center justify-center w-24 h-24 rounded-full border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black transition-all duration-300 text-5xl font-cinzel mb-6 shadow-[0_0_20px_rgba(212,175,55,0.2)]">
+                            <span class="group-hover:scale-110 transition-transform duration-300">+</span>
+                        </button>
+                        <div class="text-[#D4AF37] font-cinzel text-xl tracking-widest text-center">
+                            SEU CARRINHO ESTÁ VAZIO
+                        </div>
+                        <div class="text-gray-400 font-cormorant text-sm mt-2 text-center tracking-wider">
+                            Selecione pelo menos 1 produto para continuar.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div>
+                <div class="card-luxury p-8 mb-8">
+                    <h3 class="font-cinzel text-2xl gold-text mb-6">Resumo da Compra</h3>
+                    <div class="mb-4">
+                        <div id="coupon-message" class="text-xs font-cinzel mb-2 hidden"></div>
+                        <label class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel">Cupom de
+                            desconto</label>
+                        <div class="flex gap-2">
+                            <input type="text" placeholder="Digite código do cupom"
+                                class="bg-transparent border-b border-[#D4AF37]/30 py-2 px-2 text-white focus:border-[#D4AF37] outline-none transition-all w-full" />
+                            <button
+                                class="btn-luxury px-4 py-2 text-black font-cinzel text-xs tracking-widest rounded-none">OK</button>
+                        </div>
+                    </div>
+                    <div class="divider w-full my-4"></div>
+                    <div class="mb-2 flex justify-between text-sm">
+                        <span class="text-gray-400">Subtotal (<span class="summary-items">3 itens</span>)</span>
+                        <span class="text-white summary-subtotal">R$ 23.670</span>
+                    </div>
+                    <div class="mb-2 flex justify-between text-sm">
+                        <span class="text-gray-400">Descontos</span>
+                        <span class="text-[#D4AF37] discount-value">- R$ 0,00</span>
+                    </div>
+                    <div class="mb-2 flex justify-between text-sm">
+                        <span class="text-gray-400">Cupom</span>
+                        <span class="text-[#D4AF37] coupon-value">R$ 0,00</span>
+                    </div>
+                    <div class="divider w-full my-4"></div>
+                    <div class="mb-6 flex justify-between items-center">
+                        <span class="font-cinzel text-lg text-[#D4AF37]">Total do pedido:</span>
+                        <span class="font-cinzel text-2xl text-[#D4AF37] summary-total">R$ 23.670</span>
+                    </div>
+
+                    <a href="buy.html" onclick="localStorage.removeItem('checkout_step');"
+                        class="btn-luxury w-full py-4 text-black font-cinzel font-bold tracking-[0.3em] text-sm mb-4 inline-block text-center decoration-0">
+                        FINALIZAR COMPRA
+                    </a>
+
+                    <a href="index.html#collection" id="continue-shopping"
+                        class="w-full block py-3 border border-[#D4AF37]/30 text-[#D4AF37] font-cinzel tracking-widest text-sm bg-transparent hover:bg-[#D4AF37]/10 transition-all text-center cursor-pointer">CONTINUAR
+                        COMPRANDO</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="py-12 border-t border-[#D4AF37]/10 text-center">
+        <p class="text-gray-600 text-xs tracking-wider uppercase font-cinzel">© 2026 L'Or & Ombre.
+            Parfumerie.</p>
+    </footer>
+    
+    <script src="./scripts/reservation.js"></script>
+</body>
+
+</html>
