@@ -16,17 +16,11 @@
 </head>
 
 <body class="h-full luxury-bg text-white font-cormorant overflow-auto">
- <!-- Navegação -->
+    <!-- Navegação -->
     <nav class="sticky top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#D4AF37]/20">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-10 relative">
             <div class="flex items-center gap-3">
-                <svg class="w-10 h-10 text-[#D4AF37]" viewBox="0 0 50 50" fill="none">
-                    <path d="M25 5L30 15H20L25 5Z" fill="currentColor" />
-                    <rect x="20" y="15" width="10" height="5" fill="currentColor" opacity="0.8" />
-                    <path d="M18 20C18 20 15 25 15 35C15 42 19 45 25 45C31 45 35 42 35 35C35 25 32 20 32 20H18Z"
-                        fill="currentColor" />
-                    <ellipse cx="25" cy="32" rx="6" ry="8" fill="#0D0D0D" opacity="0.3" />
-                </svg>
+                <img src="./IMG/img_icon.png" alt="Ícone L'Or & Ombre" class="w-10 h-10 object-contain">
                 <span class="font-cinzel text-xl tracking-[0.3em] gold-text">L'Or & Ombre</span>
             </div>
             <div class="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
@@ -57,15 +51,15 @@
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all font-cormorant text-lg italic" />
                     </div>
                     <div>
-                        <label
-                            class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Senha <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
+                        <label class="block text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel uppercase">Senha
+                            <span title="Campo obrigatório" class="text-[#D4AF37]">*</span></label>
                         <input type="password" id="login-password" required
                             class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-all" />
                         <a href="#" class="text-xs text-[#D4AF37]/60 mt-4 block italic font-cormorant">Esqueci minha
                             senha</a>
                     </div>
                     <button id="btn-entrar-login" type="button"
-                        class="btn-luxury w-full py-4 text-black font-cinzel tracking-widest text-sm font-bold uppercase">ENTRAR</button>
+                        class="btn-luxury w-full py-4 text-black font-cinzel tracking-widest text-sm uppercase">ENTRAR</button>
                 </form>
 
                 <div class="divider w-full my-8 opacity-20"></div>
@@ -111,7 +105,7 @@
                     <span id="codigo-timer" class="text-[#D4AF37]">00:30</span>
                 </p>
             </div>
-             
+
             <!-- Endereço de Entrega -->
             <div id="step-entrega" class="hidden animate-fade-in">
                 <h2 class="font-cinzel text-2xl gold-text mb-8 text-center uppercase tracking-widest">Endereço de

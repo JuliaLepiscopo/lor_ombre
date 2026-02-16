@@ -49,9 +49,9 @@ html, body {
 }
 
 .btn-luxury:hover {
-  background: linear-gradient(135deg, #e5c048 0%, #d4af37 100%);
-  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #d4af37 0%, #b8952d 100%);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+  transform: translateY(-1px);
 }
 /* Efeito de sublinhado dourado para os links da navbar */
 .nav-link {

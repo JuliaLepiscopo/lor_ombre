@@ -65,14 +65,14 @@ async function onConfigChange(cfg) {
 
 // Função para atualizar a navbar caso o usuário esteja logado
 function updateNavbarUser() {
-    const userArea = document.getElementById('nav-user-area');
-    const isRegistered = localStorage.getItem('user_registered') === 'true';
-    const userPicture = localStorage.getItem('user_picture');
-    const userName = localStorage.getItem('user_name');
+  const userArea = document.getElementById('nav-user-area');
+  const isRegistered = localStorage.getItem('user_registered') === 'true';
+  const userPicture = localStorage.getItem('user_picture');
+  const userName = localStorage.getItem('user_name');
 
-    // Se houver usuário logado e a div existir na página
-    if (isRegistered && userArea) {
-        userArea.innerHTML = `
+  // Se houver usuário logado e a div existir na página
+  if (isRegistered && userArea) {
+    userArea.innerHTML = `
             <div class="flex items-center gap-4 group cursor-pointer relative">
                 <span class="font-cinzel text-[#D4AF37] text-[10px] tracking-[0.2em] hidden md:block uppercase">
                     ${userName}
@@ -89,16 +89,16 @@ function updateNavbarUser() {
                 RESERVAR
             </a>
         `;
-    }
+  }
 }
 
 // Função para deslogar
 function logout() {
-    localStorage.removeItem('user_registered');
-    localStorage.removeItem('user_name');
-    localStorage.removeItem('user_picture');
-    localStorage.removeItem('user_email');
-    window.location.reload(); // Recarrega para voltar aos botões originais
+  localStorage.removeItem('user_registered');
+  localStorage.removeItem('user_name');
+  localStorage.removeItem('user_picture');
+  localStorage.removeItem('user_email');
+  window.location.reload(); // Recarrega para voltar aos botões originais
 }
 
 // Mostra mensagem de sucesso temporária
