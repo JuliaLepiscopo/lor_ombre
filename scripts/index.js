@@ -19,7 +19,7 @@ let config = { ...defaultConfig };
 async function onConfigChange(cfg) {
   config = { ...defaultConfig, ...cfg };
 
-  // Estado atual das configurações
+  // Atualiza os textos principais (Hero e Nav) com base na nova configuração
   document.getElementById("nav-brand").textContent =
     config.brand_name || defaultConfig.brand_name;
   document.getElementById("hero-title").textContent =
@@ -42,7 +42,7 @@ async function onConfigChange(cfg) {
 
   document.body.style.background = `linear-gradient(180deg, ${bgColor} 0%, ${surfaceColor} 50%, ${bgColor} 100%)`;
 
-  // Atualiza cores de texto
+  // Sincroniza as cores dos elementos secundários com o tema escolhido
   document
     .querySelectorAll(".text-gray-400, .text-gray-500")
     .forEach((el) => {

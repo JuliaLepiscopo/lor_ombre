@@ -16,6 +16,7 @@
 </head>
 
 <body class="h-full luxury-bg text-white font-cormorant overflow-auto">
+ <!-- Navegação -->
     <nav class="sticky top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#D4AF37]/20">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-10 relative">
             <div class="flex items-center gap-3">
@@ -45,7 +46,7 @@
 
     <main class="py-24 px-6">
         <div class="max-w-4xl mx-auto card-luxury p-10 relative">
-
+            <!-- Cadatros -->
             <div id="step-login">
                 <h2 class="font-cinzel text-2xl gold-text mb-8 text-center uppercase tracking-widest">Identificação</h2>
                 <form id="login-form-submit" class="space-y-6">
@@ -88,7 +89,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Código Verificação -->
             <div id="step-codigo" class="hidden animate-fade-in">
                 <h2 class="font-cinzel text-2xl gold-text mb-8 text-center uppercase tracking-widest">Verificação</h2>
                 <p class="text-gray-400 text-center mb-8 font-cormorant text-lg italic">Digite o código de segurança
@@ -110,7 +111,8 @@
                     <span id="codigo-timer" class="text-[#D4AF37]">00:30</span>
                 </p>
             </div>
-
+             
+            <!-- Endereço de Entrega -->
             <div id="step-entrega" class="hidden animate-fade-in">
                 <h2 class="font-cinzel text-2xl gold-text mb-8 text-center uppercase tracking-widest">Endereço de
                     Entrega</h2>
@@ -164,7 +166,7 @@
                         ENDEREÇO</button>
                 </div>
             </div>
-
+            <!-- Confirmação de Envio -->
             <div id="step-endereco" class="hidden animate-fade-in text-center">
                 <h2 class="font-cinzel text-2xl gold-text mb-8 uppercase tracking-widest">Confirmação de Envio</h2>
                 <div class="border border-[#D4AF37]/20 bg-white/5 p-8 mb-8">
@@ -173,6 +175,7 @@
                     <p class="text-gray-400 text-sm tracking-widest uppercase font-cinzel">Seu pedido está pronto para a
                         coleta</p>
                 </div>
+                <!-- Opção de Coleta -->
                 <button id="btn-ir-lojas" type="button"
                     class="btn-luxury w-full py-4 text-black font-cinzel tracking-widest text-sm font-bold uppercase mb-4">ESCOLHER
                     MÉTODO DE COLETA</button>
@@ -180,7 +183,6 @@
                     class="text-[#D4AF37]/60 text-xs font-cinzel tracking-widest uppercase hover:text-[#D4AF37] transition-colors">Alterar
                     Endereço</button>
             </div>
-
             <div id="step-lojas" class="hidden animate-fade-in">
                 <h2 class="font-cinzel text-2xl gold-text mb-8 text-center uppercase tracking-widest">Pontos de Coleta
                 </h2>
@@ -195,7 +197,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Confirmação Final -->
             <div id="step-confirmacao" class="hidden animate-fade-in text-center py-10">
                 <span class="material-icons text-[#D4AF37] text-6xl mb-6">verified</span>
                 <h2 class="font-cinzel text-3xl gold-text mb-4 uppercase tracking-[0.2em]">Pedido Reservado</h2>
@@ -205,10 +207,9 @@
                     class="btn-luxury inline-block py-4 px-12 text-black font-cinzel tracking-widest text-sm font-bold uppercase">RETORNAR
                     À L'OR & OMBRE</a>
             </div>
-
         </div>
     </main>
-
+    <!-- Footer -->
     <footer class="py-12 border-t border-[#D4AF37]/10 text-center">
         <p class="text-gray-600 text-xs tracking-wider uppercase font-cinzel">© 2026 L'Or & Ombre. L'OR & OMBRE de Haute
             Parfumerie.</p>

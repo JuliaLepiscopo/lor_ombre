@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Definição dos IDs das sessões
+    // Definição dos IDs das sessões
     const steps = [
         'step-cadastro-form', // Div do formulário inicial
         'step-codigo',        // Div dos 4 campos de código
         'cadastro-success'    // Div da mensagem final de sucesso
     ];
 
-    // 2. Função para alternar entre as telas
+    // Função para mostrar a etapa correta e esconder as outras
     function showStep(stepId) {
         steps.forEach(id => {
             const element = document.getElementById(id);
@@ -19,12 +19,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    // --- LÓGICA DE INICIALIZAÇÃO (CORRIGIDA) ---
-    // Removemos a verificação do localStorage aqui.
-    // Sempre que der F5, ele vai forçar a tela inicial (Login/Cadastro).
+    // Inicia mostrando o formulário de cadastro
     showStep('step-cadastro-form');
 
-    // --- PASSO 1: SUBMISSÃO DO CADASTRO ---
+    // Validação do formulário de cadastro e navegação para o passo do código
     const cadastroForm = document.getElementById('cadastro-form');
     if (cadastroForm) {
         cadastroForm.addEventListener('submit', function (e) {
@@ -65,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- PASSO 2: VALIDAÇÃO DO CÓDIGO ---
+    // Gerencia a Experiência do Usuário (UX) na entrada do código OTP (One-Time Password)
     const btnConfirmarCodigo = document.getElementById('btn-confirmar-codigo');
     const codigoInputs = document.querySelectorAll('.codigo-input');
 
@@ -76,8 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const code = Array.from(codigoInputs).map(i => i.value).join('');
 
             if (code === '0000') {
-                // Aqui salvamos que ele completou, caso queira usar em OUTRA página,
-                // mas não usaremos para bloquear o F5 nesta página mais.
                 localStorage.setItem('user_registered', 'true');
                 showStep('cadastro-success');
             } else {
@@ -88,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- AUTO-AVANÇAR NOS INPUTS DO CÓDIGO ---
+    // Atualização: Lógica do Passo: Código de Verificação (foco automático, backspace e Enter)
     codigoInputs.forEach((input, idx) => {
         input.addEventListener('input', function () {
             if (this.value.length === 1 && idx < codigoInputs.length - 1) {
@@ -103,9 +99,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // --- LÓGICA DO TIMER ---
-    let timerInterval; // Variável declarada fora para ser acessível
+    // Timer para reenvio de código, com variável global para controle
+    let timerInterval; 
 
+    // Função para iniciar o timer de 30 segundos
     function startTimer() {
         let timer = 30;
         const timerSpan = document.getElementById('codigo-timer');

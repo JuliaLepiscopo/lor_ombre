@@ -1,15 +1,13 @@
-// scripts/buy.js
-
 document.addEventListener('DOMContentLoaded', function () {
     console.log("Script de compra carregado!");
 
-    // 1. Definição das Telas e Variáveis Globais
+    // Definição das Telas e Variáveis Globais
     const steps = ['step-login', 'step-codigo', 'step-entrega', 'step-endereco', 'step-lojas', 'step-confirmacao'];
     let timerInterval;
     const codigoInputs = document.querySelectorAll('.codigo-input');
     const timerSpan = document.getElementById('codigo-timer');
 
-    // --- FUNÇÃO DE NAVEGAÇÃO ---
+    // Funcão navegação
     function showStep(stepId) {
         steps.forEach(id => {
             const el = document.getElementById(id);
@@ -26,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Exporta para uso global (necessário para o Google Login)
     window.showStep = showStep;
 
-    // --- TIMER E REENVIO ---
+    // Timer e reenvio de código
     function startTimer() {
         let timer = 30;
         if (timerInterval) clearInterval(timerInterval);
@@ -44,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     window.startTimer = startTimer;
 
+    // Função para mostrar botão de reenvio após timer acabar
     function onTimerEnd() {
         if (timerSpan) {
             timerSpan.textContent = '';
@@ -62,12 +61,13 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
+    // Função para remover botão de reenvio (quando código é confirmado)
     function removeResendButton() {
         const btn = document.getElementById('btn-reenviar-codigo');
         if (btn) btn.remove();
     }
 
-    // --- LÓGICA DO PASSO: CÓDIGO (Enter habilitado) ---
+    // Lógica do Passo: Código de Verificação (foco automático, backspace e Enter)
     codigoInputs.forEach((input, idx) => {
         input.addEventListener('input', () => {
             if (input.value.length === 1 && idx < codigoInputs.length - 1) codigoInputs[idx + 1].focus();
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     });
-
+    // Validação do código
     const btnConfirmarCode = document.getElementById('btn-confirmar-codigo');
     if (btnConfirmarCode) {
         btnConfirmarCode.addEventListener('click', (e) => {
@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- LÓGICA DO PASSO: LOGIN ---
+    // Lógica do passo login: validação simples e navegação para código, com Enter habilitado
     const btnEntrar = document.getElementById('btn-entrar-login');
     const loginInputs = [document.getElementById('login-email'), document.getElementById('login-password')];
     
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- LÓGICA DO PASSO: ENDEREÇO (CEP e Enter habilitado) ---
+    // Lógica do passo endereço: preenchimento automático via CEP, validação dos campos e navegação para resumo, com Enter habilitado
     const addressFields = ['cep-input', 'logradouro', 'numero', 'complemento', 'bairro', 'cidade', 'estado'];
     addressFields.forEach(id => {
         const field = document.getElementById(id);
@@ -165,6 +165,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Validação dos campos de endereço e navegação para resumo
     const btnSalvarEntrega = document.getElementById('btn-salvar-entrega');
     if (btnSalvarEntrega) {
         btnSalvarEntrega.addEventListener('click', (e) => {
@@ -187,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // --- NAVEGAÇÃO FINAL ---
+    // Navegação para alterar endereço e voltar para lojas
     document.getElementById('btn-alterar-endereco')?.addEventListener('click', (e) => {
         e.preventDefault();
         showStep('step-entrega');

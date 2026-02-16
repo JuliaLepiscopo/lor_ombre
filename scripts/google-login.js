@@ -1,22 +1,15 @@
-// scripts/google-login.js
-
-// --- CONFIGURAÇÃO ---
-// COLE AQUI O SEU CLIENT ID QUE VOCÊ COPIOU NO PASSO 3
 const CLIENT_ID = '41152404475-0vsca7h7oi96hk2vp12iarf35tn65tf5.apps.googleusercontent.com';
 
-// Origens esperadas — adicione aqui localhost/dev URLs e o domínio em produção
+// IMPORTANTE: Para segurança, o Google exige que você registre as origens (domínios) de onde seu site será acessado.
 const ALLOWED_ORIGINS = [
     'https://l-or-ombre.vercel.app',
     'http://localhost:8000',
     'http://localhost:5173',
     'http://127.0.0.1:5500'
 ];
-
-// --- VARIÁVEIS GLOBAIS ---
 let tokenClient;
 
-// 1. INICIALIZAÇÃO
-// Essa função roda assim que a página carrega para deixar o Google pronto
+// Função de inicialização do Google Login. Configura o tokenClient e verifica origens autorizadas.
 function initGoogle() {
     console.log('initGoogle() chamado. origin=', location.origin);
 
@@ -25,37 +18,33 @@ function initGoogle() {
         console.warn('Origens permitidas (config em arquivo):', ALLOWED_ORIGINS);
     }
 
-    // debug badge removed
 
     if (window.google) {
         try {
-            // Configura o cliente de token (ideal para botões customizados)
             tokenClient = google.accounts.oauth2.initTokenClient({
                 client_id: CLIENT_ID,
+                // Define as permissões solicitadas: acesso ao perfil básico e e-mail do usuário.
                 scope: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email',
                 callback: (tokenResponse) => {
-                    // Essa parte roda DEPOIS que o usuário escolheu a conta no popup
+                //Roda quando o Google retornar o token (após login)
                     console.log('tokenResponse recebido', tokenResponse);
                     if (tokenResponse && tokenResponse.access_token) {
                         fetchUserData(tokenResponse.access_token);
                     }
                 },
             });
-            // Exponha tokenClient para debug em console
+            // Token client criado com sucesso, expõe para debug
             window.tokenClient = tokenClient;
             window.initGoogle = initGoogle;
             console.log('Google Login inicializado! tokenClient exposto em window.tokenClient');
         } catch (err) {
             console.error('Erro ao inicializar google.accounts.oauth2.initTokenClient:', err);
-            // debug removed
         }
     } else {
         console.warn('window.google não está disponível ainda. O script do Google pode não ter carregado.');
-        // debug removed
     }
 }
 
-// 2. BUSCAR DADOS DO USUÁRIO
 // Usa o token para pedir Nome e Foto ao Google
 function fetchUserData(accessToken) {
     fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
@@ -67,18 +56,17 @@ function fetchUserData(accessToken) {
         .then(data => {
             console.log("Dados recebidos do Google:", data);
 
-            // --- SUCESSO! AQUI ACONTECE O LOGIN ---
 
-            // 1. Salva os dados no navegador (simulando banco de dados)
+            // Persistência local: armazena dados da sessão para evitar novos logins após refresh (stateless)
             localStorage.setItem('user_registered', 'true');
             localStorage.setItem('user_name', data.name);
             localStorage.setItem('user_email', data.email);
-            localStorage.setItem('user_picture', data.picture); // Salva a foto se quiser usar
+            localStorage.setItem('user_picture', data.picture);
 
-            // 2. Feedback visual
+            // Feedback visual
             alert(`Bem-vindo(a), ${data.given_name}! Login realizado com sucesso.`);
 
-            // 3. Redirecionamento (Lógica do seu site)
+            // Redirecionamento (Lógica do seu site)
             // Se a função showStep existir (estiver no mesmo contexto), avança.
             if (typeof showStep === 'function') {
                 showStep('step-codigo'); // Pula o login e vai para a próxima etapa
@@ -97,7 +85,7 @@ function fetchUserData(accessToken) {
         });
 }
 
-// 3. CONECTAR O BOTÃO
+// Garantia de que o Google Login será inicializado mesmo que o script demore a carregar
 document.addEventListener('DOMContentLoaded', () => {
     // Tenta inicializar (caso o script do Google já tenha carregado)
     initGoogle();
@@ -112,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             console.log('btn-google clicado. tokenClient=', tokenClient, 'window.google=', !!window.google);
 
-            // O MOMENTO DO CLIQUE
+            // Se o tokenClient já estiver pronto, chama requestAccessToken. Caso contrário, tenta inicializar e chama novamente após 1s.
             if (tokenClient) {
                 try {
                     tokenClient.requestAccessToken();
