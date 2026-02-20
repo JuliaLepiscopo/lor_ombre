@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', function () {
     let discount = 0;
     let couponApplied = false;
 
-    // Helper para formatar moeda
+    // Função para formatar valores como moeda brasileira
     function formatCurrency(value) {
         return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).replace('R$', 'R$ ');
     }
 
+    // Garante a conversão para inteiro usando base decimal
     function getPrice(row) {
-        // Pega o valor escondido que é um número inteiro
         const priceElement = row.querySelector('.item-price');
         return priceElement ? parseInt(priceElement.textContent, 10) : 0;
     }
@@ -53,13 +53,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const couponEl = document.querySelector('.coupon-value');
         if(couponEl) couponEl.textContent = couponApplied ? '10% OFF' : 'R$ 0,00';
     }
-
+    // Função para verificar se o carrinho está vazio e atualizar a interface
     function checkEmptyCart() {
         const cartBody = document.getElementById('cart-body');
         const cartContainer = document.getElementById('cart-container');
         const emptyCart = document.getElementById('empty-cart');
         
-        // Verifica o número de linhas na tabela
+        // Define se o carrinho está vazio baseando-se na contagem de linhas
         const itemsCount = cartBody.querySelectorAll('tr').length;
 
         if (itemsCount === 0) {
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Inicialização
+    // Garante que os totais e o estado da interface estejam corretos ao carregar a página
     updateSummary();
     checkEmptyCart();
 });

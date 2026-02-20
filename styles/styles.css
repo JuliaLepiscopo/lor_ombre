@@ -1,3 +1,4 @@
+/* styles.css - Estilos personalizados para o site de perfumes de luxo */
 html, body {
   margin: 0;
   padding: 0;
@@ -12,11 +13,11 @@ html, body {
 .font-cinzel {
   font-family: "Cinzel", serif;
 }
-
+/* Adicionando uma fonte elegante para os títulos e textos principais */
 .font-cormorant {
   font-family: "Cormorant Garamond", serif;
 }
-
+/* Fonte clássica e sofisticada para os textos secundários e descrições */
 .gold-gradient {
   background: linear-gradient(135deg, #d4af37 0%, #f4e4ba 50%, #d4af37 100%);
 }
@@ -27,7 +28,7 @@ html, body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-
+/* Fundo escuro com um leve gradiente para dar profundidade e sofisticação */
 .luxury-bg {
   background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 50%, #0d0d0d 100%);
 }
@@ -48,11 +49,11 @@ html, body {
 }
 
 .btn-luxury:hover {
-  background: linear-gradient(135deg, #e5c048 0%, #d4af37 100%);
-  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #d4af37 0%, #b8952d 100%);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+  transform: translateY(-1px);
 }
-
+/* Efeito de sublinhado dourado para os links da navbar */
 .nav-link {
   position: relative;
 }
@@ -85,7 +86,7 @@ html, body {
   color: #d4af37;
   opacity: 0.3;
 }
-
+/* Animação de flutuação suave para as imagens dos perfumes */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -99,7 +100,7 @@ html, body {
   0% { background-position: -200% center; }
   100% { background-position: 200% center; }
 }
-
+/* Efeito de brilho dourado para os títulos e elementos de destaque */
 .shimmer {
   background: linear-gradient(90deg, #d4af37 0%, #f4e4ba 25%, #d4af37 50%, #f4e4ba 75%, #d4af37 100%);
   background-size: 200% auto;
@@ -121,7 +122,7 @@ html, body {
 .animate-delay-2 { animation-delay: 0.4s; opacity: 0; }
 .animate-delay-3 { animation-delay: 0.6s; opacity: 0; }
 .animate-delay-4 { animation-delay: 0.8s; opacity: 0; }
-
+/* Linha do tempo estilizada para a seção "Nossa História" */
 .timeline-item {
   position: relative;
   padding-left: 40px;
@@ -148,7 +149,7 @@ html, body {
   height: 80px;
   background: linear-gradient(to bottom, #D4AF37, rgba(212, 175, 55, 0.2));
 }
-
+/* Cartões de valores e perfumistas com bordas douradas e efeitos de hover */
 .value-card {
   text-align: center;
   padding: 2rem;
@@ -161,7 +162,7 @@ html, body {
   transform: translateY(-5px);
   box-shadow: 0 15px 40px rgba(212, 175, 55, 0.1);
 }
-
+/* Cartões de perfumistas com fundo escuro e bordas douradas */
 .perfumer-card {
   background: linear-gradient(145deg, #1A1A1A 0%, #0D0D0D 100%);
   border: 1px solid rgba(212, 175, 55, 0.2);
@@ -174,12 +175,12 @@ html, body {
   border-color: rgba(212, 175, 55, 0.6);
   box-shadow: 0 15px 40px rgba(212, 175, 55, 0.15);
 }
-
+/* Animação de rolagem horizontal para a seção de perfumes em destaque */
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(calc(-350px * 3 - 2rem * 3)); } 
 }
-
+/* Container para os perfumes em destaque com rolagem automática */
 .animate-scroll {
   display: flex;
   width: max-content;
@@ -209,4 +210,51 @@ input[type="password"]::-ms-reveal {
 input[type="date"]::-webkit-calendar-picker-indicator {
     display: none !important;
     -webkit-appearance: none;
+}
+
+
+/* Container da foto com brilho suave ao redor */
+#nav-user-area .rounded-full {
+  box-shadow: 0 0 0px rgba(212, 175, 55, 0);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Efeito de destaque quando passa o mouse no grupo do perfil */
+#nav-user-area .group:hover .rounded-full {
+  border-color: #d4af37;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  transform: scale(1.05);
+}
+
+/* Ajuste na imagem para garantir que ela preencha o círculo */
+#nav-user-area img {
+  transition: transform 0.8s ease;
+}
+
+#nav-user-area .group:hover img {
+  transform: scale(1.1);
+}
+
+/* Menu "SAIR" com entrada suave */
+#nav-user-area button {
+  animation: fadeIn 0.3s ease-out;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+#nav-user-area button:hover {
+  border-color: rgba(212, 175, 55, 0.4);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+/* Animação simples de entrada para o menu de logout */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Linha ativa da Navbar */
+.nav-link-active::after {
+  width: 100% !important;
+  background: #d4af37 !important;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
