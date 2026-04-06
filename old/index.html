@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="./IMG/img_icon.png" type="image/x-icon">
+  <title>L'Or & Ombre - Parfums de Luxe</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Cinzel:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+</head>
+
+<body class="h-full luxury-bg text-white font-cormorant overflow-auto">
+  <!-- Navegação -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-[#D4AF37]/20">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-10 relative">
+      <div class="flex items-center gap-3">
+        <a href="./index.html" class="hover:opacity-80 transition-opacity">
+          <img src="./IMG/img_icon.png" alt="Ícone L'Or & Ombre" class="w-10 h-10 object-contain">
+        </a>
+        <span id="nav-brand" class="font-cinzel text-xl tracking-[0.3em] gold-text">L'Or & Ombre</span>
+      </div>
+
+      <div class="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2 -md-36">
+        <a href="./index.html"
+          class="nav-link text-[#D4AF37]/80 hover:text-[#D4AF37] tracking-widest text-sm transition-colors">COLEÇÃO</a>
+        <a href="./about.html"
+          class="nav-link text-[#D4AF37]/80 hover:text-[#D4AF37] tracking-widest text-sm transition-colors">SOBRE</a>
+        <a href="./contact.html"
+          class="nav-link text-[#D4AF37]/80 hover:text-[#D4AF37] tracking-widest text-sm transition-colors">CONTATO</a>
+      </div>
+
+    </div>
+    <div id="nav-user-area" class="absolute right-10 top-1/2 -translate-y-1/2 flex items-center gap-4">
+      <a href="./buy.html"
+        class="border border-[#D4AF37]/30 py-2 px-4 bg-transparent hover:bg-[#D4AF37]/10 transition-all font-cinzel text-[#D4AF37] text-xs tracking-widest uppercase">ENTRAR</a>
+      <a href="./buy.html"
+        class="border border-[#D4AF37]/30 py-2 px-4 bg-transparent hover:bg-[#D4AF37]/10 transition-all font-cinzel text-[#D4AF37] text-xs tracking-widest uppercase">FAZER
+        CADASTRO</a>
+      <a href="./reservation.html"
+        class="btn-luxury px-6 py-2 text-black font-cinzel text-xs tracking-widest rounded-none inline-block text-center decoration-0">RESERVAR</a>
+    </div>
+  </nav>
+  <!-- Sessão Hero -->
+  <header class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <!-- Decoração Elementos -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-20 left-10 star-decoration text-6xl">✦</div>
+      <div class="absolute top-40 right-20 star-decoration text-4xl">✧</div>
+      <div class="absolute bottom-40 left-20 star-decoration text-3xl">✦</div>
+      <div class="absolute bottom-20 right-10 star-decoration text-5xl">
+        ✧
+      </div>
+      <div class="absolute top-1/2 left-5 star-decoration text-2xl">✦</div>
+      <div class="absolute top-1/3 right-5 star-decoration text-2xl">✧</div>
+    </div>
+
+    <!-- Decoração linha -->
+    <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+      <div class="flex items-center justify-center gap-4 -mb-6 animate-fade-in">
+        <div class="w-16 h-px bg-gradient-to-r from-transparent to-[#D4AF37] mt-1"></div>
+        <span class="text-[#D4AF37] text-2xl leading-none">✦</span>
+        <div class="w-16 h-px bg-gradient-to-l from-transparent to-[#D4AF37] mt-1"></div>
+      </div>
+
+      <!-- Visual principal perfume -->
+      <div class="flex justify-center float-animation animate-fade-in animate-delay-1 mb-4 -mt-32 md:-mt-40">
+        <img src="./IMG/img_principal_perfume.png" alt="" class="w-96">
+      </div>
+
+
+      <p class="text-[#D4AF37]/60 tracking-[0.5em] text-sm mb-4 font-cinzel -mt-28 md:-mt-36">
+        HAUTE PARFUMERIE
+      </p>
+      <h1 id="hero-title"
+        class="font-cinzel text-5xl md:text-7xl font-light tracking-wider mb-6 shimmer animate-fade-in animate-delay-2">
+        O luxo traduzido em notas
+      </h1>
+      <p id="hero-subtitle"
+        class="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed italic animate-fade-in animate-delay-3">
+        Fragrâncias exclusivas criadas para aqueles que apreciam o
+        extraordinário
+      </p>
+      <a id="cta-button" href="#collection"
+        class="inline-block btn-luxury px-12 py-4 text-black font-cinzel tracking-[0.3em] text-sm animate-fade-in animate-delay-4 text-center">
+        EXPLORAR COLEÇÃO
+      </a>
+
+      <!-- Decoração linha -->
+      <div class="flex items-center justify-center gap-4 mt-16 animate-fade-in animate-delay-4">
+        <div class="w-24 h-px bg-gradient-to-r from-transparent to-[#D4AF37]/50"></div>
+        <span class="text-[#D4AF37]/40 text-sm tracking-widest">EST. 1870</span>
+        <div class="w-24 h-px bg-gradient-to-l from-transparent to-[#D4AF37]/50"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sessão Coleção -->
+  <section id="collection" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Sessão Header -->
+      <div class="text-center mb-20">
+        <span class="text-[#D4AF37]/60 tracking-[0.5em] text-xs font-cinzel">NOSSA</span>
+        <h2 class="font-cinzel text-4xl md:text-5xl mt-4 gold-text">
+          Coleção Exclusiva
+        </h2>
+        <div class="divider w-32 mx-auto mt-6"></div>
+      </div>
+
+      <!-- Sessão Produtos Grid -->
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- Sessão Produto 1 -->
+        <div class="card-luxury p-8 text-center group transition-all duration-500 cursor-pointer">
+          <div class="-mb-20 transform group-hover:scale-105 transition-transform duration-500">
+            <img src="./IMG/img_perfume_1.png" alt="">
+          </div>
+          <span class="text-[#D4AF37]/50 text-xs tracking-widest">LUMIÈRE</span>
+          <h3 class="font-cinzel text-2xl mt-2 text-white group-hover:text-[#D4AF37] transition-colors">
+            Or Royal
+          </h3>
+          <p class="text-gray-500 mt-3 text-sm italic">
+            Rosa damascena, sândalo, almíscar branco.
+          </p>
+          <div class="divider w-16 mx-auto my-4"></div>
+          <p class="text-[#D4AF37] font-cinzel text-xl">R$ 5.790</p>
+
+          <a href="./reservation.html">
+            <button
+              class="mt-6 border border-[#D4AF37]/40 px-8 py-3 text-[#D4AF37] text-xs tracking-widest hover:bg-[#D4AF37] hover:text-black transition-all duration-300 font-cinzel">
+              ADICIONAR
+            </button>
+          </a>
+        </div>
+
+        <!-- Sessão Produto 2 -->
+        <div
+          class="card-luxury p-8 text-center group transition-all duration-500 cursor-pointer relative border-[#D4AF37]/40">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#D4AF37] px-4 py-1">
+            <span class="text-black text-xs tracking-widest font-cinzel">BEST SELLER</span>
+          </div>
+          <div class="-mb-20 transform group-hover:scale-105 transition-transform duration-500">
+            <img src="./IMG/img_perfume_3.png" alt="">
+          </div>
+          <span class="text-[#D4AF37]/50 text-xs tracking-widest">LUMIÈRE INTENSE</span>
+          <h3 class="font-cinzel text-2xl mt-2 text-white group-hover:text-[#D4AF37] transition-colors">
+            Or Impérial
+          </h3>
+          <p class="text-gray-500 mt-3 text-sm italic">
+            Açafrão (Ouro Vermelho), Rosa Absoluta, Âmbar Dourado.
+          </p>
+          <div class="divider w-16 mx-auto my-4"></div>
+          <p class="text-[#D4AF37] font-cinzel text-xl">R$ 7.890</p>
+
+          <a href="./reservation.html"
+            class="mt-6 btn-luxury px-8 py-3 text-black text-xs tracking-widest font-cinzel inline-block">
+            ADICIONAR
+          </a>
+        </div>
+
+        <!-- Sessão Produto 3 -->
+        <div class="card-luxury p-8 text-center group transition-all duration-500 cursor-pointer">
+          <div class="flex justify-center -mb-20 transform group-hover:scale-105 transition-transform duration-500">
+            <img src="./IMG/img_perfume_2.png" alt="" class="flex w-50">
+          </div>
+          <span class="text-[#D4AF37]/50 text-xs tracking-widest">NOIR</span>
+          <h3 class="font-cinzel text-2xl mt-2 text-white group-hover:text-[#D4AF37] transition-colors">
+            Nuit Éternelle
+          </h3>
+          <p class="text-gray-500 mt-3 text-sm italic">
+            Oud, âmbar negro, baunilha de Madagascar.
+          </p>
+          <div class="divider w-16 mx-auto my-4"></div>
+          <p class="text-[#D4AF37] font-cinzel text-xl">R$ 9.990</p>
+          <a href="./reservation.html">
+            <button
+              class="mt-6 border border-[#D4AF37]/40 px-8 py-3 text-[#D4AF37] text-xs tracking-widest hover:bg-[#D4AF37] hover:text-black transition-all duration-300 font-cinzel">
+              ADICIONAR
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sessão história -->
+  <section id="about" class="py-24 px-6 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#D4AF37]/5 to-transparent"></div>
+    <div class="max-w-5xl mx-auto relative z-10">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <span class="text-[#D4AF37]/60 tracking-[0.5em] text-xs font-cinzel">NOSSA HISTÓRIA</span>
+          <h2 class="font-cinzel text-4xl mt-4 gold-text">
+            Tradição &amp; Excelência
+          </h2>
+          <div class="divider w-24 mt-6 mb-8"></div>
+          <p class="text-gray-400 leading-relaxed text-lg italic">
+            Desde 1870, a L'Or & Ombre dedica-se à criação de fragrâncias
+            extraordinárias. Cada perfume é uma obra-prima, elaborada com os
+            ingredientes mais raros e preciosos do mundo.
+          </p>
+          <p class="text-gray-400 leading-relaxed text-lg mt-6 italic">
+            Nossos mestres perfumistas perpetuam um savoir-faire único,
+            transmitido através de gerações, para oferecer a você experiências
+            olfativas incomparáveis.
+          </p>
+          <div class="flex gap-12 mt-10">
+            <div class="text-center">
+              <p class="font-cinzel text-3xl text-[#D4AF37]">150+</p>
+              <p class="text-gray-500 text-sm tracking-widest mt-1">ANOS</p>
+            </div>
+            <div class="text-center">
+              <p class="font-cinzel text-3xl text-[#D4AF37]">70+</p>
+              <p class="text-gray-500 text-sm tracking-widest mt-1">
+                CRIAÇÕES
+              </p>
+            </div>
+            <div class="text-center">
+              <p class="font-cinzel text-3xl text-[#D4AF37]">13</p>
+              <p class="text-gray-500 text-sm tracking-widest mt-1">PAÍSES</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center">
+          <div class="relative">
+            <div class="absolute inset-0 border border-[#D4AF37]/30 transform translate-x-4 translate-y-4"></div>
+            <div class="bg-gradient-to-br from-[#1A1A1A] to-[#0D0D0D] p-12 border border-[#D4AF37]/20 relative">
+              <img src="./IMG/img_woman_2.png" alt="" class="flex w-80">
+              <div class="absolute -bottom-4 -right-4 bg-[#D4AF37] p-3">
+                <span class="text-black font-cinzel text-xs tracking-widest">L'Or 1870</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sessão Depoimentos -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="text-[#D4AF37]/60 tracking-[0.5em] text-xs font-cinzel">DEPOIMENTOS</span>
+      <h2 class="font-cinzel text-4xl mt-4 gold-text">
+        O Que Dizem Nossos Clientes
+      </h2>
+      <div class="divider w-32 mx-auto mt-6 mb-16"></div>
+
+      <div class="card-luxury p-12">
+        <svg class="w-12 h-12 mx-auto text-[#D4AF37]/40 mb-6" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+        </svg>
+        <p class="text-2xl text-gray-300 italic leading-relaxed">
+          "Uma experiência olfativa verdadeiramente transcendente. A harmonia
+          da rosa damascena com o sândalo no Lumière cria um equilíbrio
+          perfeito entre delicadeza e poder. É a definição de luxo líquido.
+          Finalmente, encontrei o cheiro que me define"
+        </p>
+        <div class="mt-8">
+          <p class="font-cinzel text-[#D4AF37] tracking-wider">
+            CARMELA MONTEZ
+          </p>
+          <p class="text-gray-500 text-sm mt-1">São Paulo, Brasil</p>
+        </div>
+        <div class="flex justify-center gap-2 mt-6">
+          <span class="text-[#D4AF37]">★</span>
+          <span class="text-[#D4AF37]">★</span>
+          <span class="text-[#D4AF37]">★</span>
+          <span class="text-[#D4AF37]">★</span>
+          <span class="text-[#D4AF37]">★</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sessão Contato -->
+  <section id="contact" class="py-24 px-6 relative">
+    <div class="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/5 to-transparent"></div>
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <span class="text-[#D4AF37]/60 tracking-[0.5em] text-xs font-cinzel">CONTATO</span>
+      <h2 class="font-cinzel text-4xl mt-4 gold-text">
+        Atendimento Exclusivo
+      </h2>
+      <div class="divider w-32 mx-auto mt-6 mb-12"></div>
+      <p class="text-gray-400 text-lg italic mb-12">
+        Nossos consultores estão à disposição para uma experiência
+        personalizada
+      </p>
+
+      <form id="contact-form" class="card-luxury p-10">
+        <div class="grid md:grid-cols-2 gap-6 mb-6">
+          <div>
+            <label for="name"
+              class="block text-left text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel">NOME</label>
+            <input type="text" id="name"
+              class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-colors"
+              placeholder="Seu nome completo" />
+          </div>
+          <div>
+            <label for="email"
+              class="block text-left text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel">EMAIL</label>
+            <input type="email" id="email"
+              class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-colors"
+              placeholder="seu@email.com" />
+          </div>
+        </div>
+        <div class="mb-8">
+          <label for="message"
+            class="block text-left text-[#D4AF37]/60 text-xs tracking-widest mb-2 font-cinzel">MENSAGEM</label>
+          <textarea id="message" rows="4"
+            class="w-full bg-transparent border-b border-[#D4AF37]/30 py-3 text-white focus:border-[#D4AF37] outline-none transition-colors resize-none"
+            placeholder="Como podemos ajudá-lo?"></textarea>
+        </div>
+        <button type="submit"
+          class="btn-luxury px-12 py-4 text-black font-cinzel tracking-[0.3em] text-sm w-full md:w-auto">
+          ENVIAR MENSAGEM
+        </button>
+        <p id="success-message" class="mt-6 text-[#D4AF37] hidden">
+          ✓ Mensagem enviada com sucesso!
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-16 px-6 border-t border-[#D4AF37]/10">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid md:grid-cols-4 gap-12 mb-12">
+        <div>
+          <div class="flex items-center gap-3 mb-6">
+            <img src="./IMG/img_icon.png" alt="Ícone L'Or & Ombre" class="w-8 h-8 object-contain">
+            <span class="font-cinzel text-lg tracking-[0.2em] gold-text">L'Or & Ombre</span>
+          </div>
+          <p class="text-gray-500 text-sm italic">
+            O luxo traduzido em notas desde 1870
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-cinzel text-[#D4AF37] tracking-widest text-sm mb-4">
+            COLEÇÕES
+          </h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="text-gray-500 hover:text-[#D4AF37] transition-colors text-sm">Feminino</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-500 hover:text-[#D4AF37] transition-colors text-sm">Masculino</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-500 hover:text-[#D4AF37] transition-colors text-sm">Unissex</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-500 hover:text-[#D4AF37] transition-colors text-sm">Edições Limitadas</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-cinzel text-[#D4AF37] tracking-widest text-sm mb-4">
+            SERVIÇOS
+          </h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="text-gray-500 hover:text-[#D4AF37] transition-colors text-sm">Consultoria Olfativa</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-500 hover:text-[#D4AF37] transition-colors text-sm">Criação Personalizada</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-500 hover:text-[#D4AF37] transition-colors text-sm">Gift Cards</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-500 hover:text-[#D4AF37] transition-colors text-sm">Entrega Premium</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-cinzel text-[#D4AF37] tracking-widest text-sm mb-4">
+            BOUTIQUE
+          </h4>
+          <p class="text-gray-500 text-sm">Alameda Lorena, 1892, 1100</p>
+          <p class="text-gray-500 text-sm">Jardins, São Paulo - SP</p>
+          <p class="text-gray-500 text-sm mt-4">+55 11 3333-0000</p>
+          <p class="text-gray-500 text-sm">contato@l'or&ombre.com</p>
+        </div>
+      </div>
+
+      <div class="divider w-full mb-8"></div>
+
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-600 text-xs tracking-wider">
+          © 2026 L'Or & Ombre. TODOS OS DIREITOS RESERVADOS.
+        </p>
+        <div class="flex gap-6 mt-4 md:mt-0">
+          <a href="#" class="text-[#D4AF37]/50 hover:text-[#D4AF37] transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <a href="#" class="text-[#D4AF37]/50 hover:text-[#D4AF37] transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+            </svg>
+          </a>
+          <a href="#" class="text-[#D4AF37]/50 hover:text-[#D4AF37] transition-colors">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./scripts/index.js"></script>
+  <script src="./components/navbar/navbar.js"></script>
+</body>
+
+</html>
